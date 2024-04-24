@@ -1,1 +1,78 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    /* CSS styles */
+    body {
+      background: #111;
+    }
+
+    .horizontal-scroll-wrapper {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 339px; /* Image width + scrollbar height */
+      max-height: 990px; /* Image height x 3 */
+      margin: 0;
+      padding-top: 1px;
+      background: #abc;
+      overflow-y: auto;
+      overflow-x: hidden;
+      transform: rotate(-90deg) translateY(-338px);
+      transform-origin: right top;
+    }
+
+    .squares {
+      padding: 338px 0 0 0;
+    }
+
+    .squares > div {
+      width: 338px;
+      height: 240px;
+      margin: 10px 0;
+      display: inline-block;
+      background-image: url([https://austinkleon.com/wp-content/uploads/2012/10/01-think-process-500x333.jpg]);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .squares > div:nth-child(2) {
+      background-image: url([https://austinkleon.com/wp-content/uploads/2012/10/07-learn-teach-500x333.jpg]);
+    }
+
+    .squares > div:nth-child(3) {
+      background-image: url([https://austinkleon.com/wp-content/uploads/2012/10/03-attribution-500x333.jpg]);
+    }
+
+    /* Additional styles for multiple images can be added here */
+  </style>
+</head>
+<body>
+  <div class="horizontal-scroll-wrapper squares">
+    <div></div>
+    <div></div>
+    <div></div>
+    </div>
+  <script>
+    // JavaScript for autoplay
+    const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
+    let scrollPosition = 0;
+
+    function autoScroll() {
+      scrollPosition++;
+      scrollWrapper.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+
+      if (scrollPosition >= (scrollWrapper.scrollHeight - scrollWrapper.clientHeight)) {
+        scrollPosition = 0;
+      }
+    }
+
+    setInterval(autoScroll, 3000); // Change interval (in milliseconds) to adjust scroll speed 
+  </script>
+</body>
+</html>
+
