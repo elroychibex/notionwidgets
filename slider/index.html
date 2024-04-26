@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horizontal Image Slider</title>
-<!--   <style>
+  <style>
     /* CSS styles */
     body {
       background: #111;
@@ -38,7 +38,47 @@
       from { transform: translateX(0); }
       to { transform: translateX(-calc(100vw + 10px)); } /* Slide one image width + margin */
     }
-  </style> -->
+  </style>
+  
+</head>
+<body>
+  <div class="slider-wrapper">
+    <div class="slider-images">
+      <img src="./1.png" alt="Image 1">
+      <img src="./2.png" alt="Image 2">
+      <img src="./3.png" alt="Image 3">
+      <img src="./4.png" alt="Image 4">
+      <img src="./5.png" alt="Image 5">
+      <img src="./6.png" alt="Image 6">
+      <img src="./7.png" alt="Image 7">
+      <img src="./8.png" alt="Image 8">
+      <img src="./9.png" alt="Image 9">
+      </div>
+  </div>
+ <script>
+    // JavaScript for autoplay
+    const sliderImages = document.querySelector('.slider-images');
+    const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
+
+    function autoScroll() {
+      // Set translate to the full width of the slider (twice viewport width + image width)
+      sliderImages.style.transform = `translateX(-${sliderImages.offsetWidth}px)`;
+    }
+
+    setInterval(autoScroll, 50000); // Change interval (in milliseconds) to adjust scroll speed
+
+    // Initial scroll (optional, for immediate start)
+    autoScroll();
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Image Slider</title>
   <style>
     /* CSS styles */
     body {
@@ -60,7 +100,7 @@
       display: flex;
       /* Set width to at least twice the viewport width */
       width: calc(2 * 100vw);
-      animation: scroll-images 20s linear infinite; /* Animation for autoplay */
+      animation: scroll-images 20s linear infinite; /* Apply the animation */
     }
 
     .slider-images img {
@@ -88,22 +128,7 @@
       <img src="./7.png" alt="Image 7">
       <img src="./8.png" alt="Image 8">
       <img src="./9.png" alt="Image 9">
-      </div>
+    </div>
   </div>
-<!-- <script>
-    // JavaScript for autoplay
-    const sliderImages = document.querySelector('.slider-images');
-    const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
-
-    function autoScroll() {
-      // Set translate to the full width of the slider (twice viewport width + image width)
-      sliderImages.style.transform = `translateX(-${sliderImages.offsetWidth}px)`;
-    }
-
-    setInterval(autoScroll, 50000); // Change interval (in milliseconds) to adjust scroll speed
-
-    // Initial scroll (optional, for immediate start)
-    autoScroll();
-  </script> -->
 </body>
 </html>
