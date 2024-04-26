@@ -51,21 +51,6 @@
       <img src="https://austinkleon.com/wp-content/uploads/2012/10/03-attribution-500x333.jpg" alt="Image 6">
       </div>
   </div>
-<!--   <script>
-    // JavaScript for autoplay
-    const sliderImages = document.querySelector('.slider-images');
-    const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
-    const totalWidth = sliderImages.offsetWidth; // Get total width of all images + margins
-
-    function autoScroll() {
-      sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
-    }
-
-    setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
-
-    // Initial scroll (optional, for immediate start)
-    autoScroll();
-  </script> -->
 <script>
     // JavaScript for autoplay
     const sliderImages = document.querySelector('.slider-images');
@@ -74,10 +59,17 @@
 
     function autoScroll() {
       sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
-      // Wait for transition to complete before resetting
       sliderImages.addEventListener('transitionend', () => {
-        sliderImages.style.transform = 'translateX(0)'; // Reset to beginning
-      });
+        // Clone the first set of images and append them to the end
+        const firstImages = sliderImages.cloneNode(true);
+        sliderImages.appendChild(firstImages);
+
+        // Wait for appended images transition to complete before removing
+        sliderImages.addEventListener('transitionend', () => {
+          sliderImages.removeChild(sliderImages.firstChild); // Remove the first set
+          sliderImages.style.transform = 'translateX(0)'; // Reset to beginning
+        }, { once: true }); // Remove event listener after first use
+      }, { once: true }); // Remove event listener after first use
     }
 
     setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
