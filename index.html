@@ -58,13 +58,20 @@
     const totalWidth = sliderImages.offsetWidth; // Get total width of all images + margins
 
     function autoScroll() {
-      sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
+      // Set translate to the full width of the slider (twice viewport width)
+      sliderImages.style.transform = `translateX(-${totalWidth}px)`;
     }
 
     setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
 
     // Initial scroll (optional, for immediate start)
     autoScroll();
+
+    // Event listener for the transitionend event
+    sliderImages.addEventListener('transitionend', () => {
+      // Move the first set of images to the end of the slider
+      sliderImages.style.transform = `translateX(${imageWidth}px)`; // Move by one image width
+    });
   </script>
 </body>
 </html>
