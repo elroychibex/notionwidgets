@@ -79,6 +79,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horizontal Image Slider</title>
+   
   <style>
     /* CSS styles */
     body {
@@ -115,6 +116,14 @@
       to { transform: translateX(-calc(100vw + 10px)); } /* Slide one image width + margin */
     }
   </style>
+  <script>
+    // JavaScript for autoplay and dynamic width calculation
+    const imageWidth = document.querySelector('.slider-images img').offsetWidth; // Get image width
+    const numberOfImages = document.querySelectorAll('.slider-images img').length;
+    const margin = 10; // Adjust margin as needed
+    const sliderImages = document.querySelector('.slider-images');
+    sliderImages.style.width = `${(numberOfImages * imageWidth) + ((numberOfImages - 1) * margin)}px`;
+  </script>
 </head>
 <body>
   <div class="slider-wrapper">
@@ -130,13 +139,6 @@
       <img src="./9.png" alt="Image 9">
     </div>
   </div>
-  <script>
-    // JavaScript for autoplay and dynamic width calculation
-    const imageWidth = document.querySelector('.slider-images img').offsetWidth; // Get image width
-    const numberOfImages = document.querySelectorAll('.slider-images img').length;
-    const margin = 10; // Adjust margin as needed
-    const sliderImages = document.querySelector('.slider-images');
-    sliderImages.style.width = `${(numberOfImages * imageWidth) + ((numberOfImages - 1) * margin)}px`;
-  </script>
+ 
 </body>
 </html>
