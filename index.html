@@ -51,7 +51,7 @@
       <img src="https://austinkleon.com/wp-content/uploads/2012/10/03-attribution-500x333.jpg" alt="Image 6">
       </div>
   </div>
-  <script>
+<!--   <script>
     // JavaScript for autoplay
     const sliderImages = document.querySelector('.slider-images');
     const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
@@ -59,6 +59,25 @@
 
     function autoScroll() {
       sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
+    }
+
+    setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
+
+    // Initial scroll (optional, for immediate start)
+    autoScroll();
+  </script> -->
+<script>
+    // JavaScript for autoplay
+    const sliderImages = document.querySelector('.slider-images');
+    const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
+    const totalWidth = sliderImages.offsetWidth; // Get total width of all images + margins
+
+    function autoScroll() {
+      sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
+      // Wait for transition to complete before resetting
+      sliderImages.addEventListener('transitionend', () => {
+        sliderImages.style.transform = 'translateX(0)'; // Reset to beginning
+      });
     }
 
     setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
