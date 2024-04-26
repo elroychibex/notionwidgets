@@ -117,12 +117,7 @@
     }
   </style>
   <script>
-    // JavaScript for autoplay and dynamic width calculation
     const imageWidth = document.querySelector('.slider-images img').offsetWidth; // Get image width
-    const numberOfImages = document.querySelectorAll('.slider-images img').length;
-    const margin = 10; // Adjust margin as needed
-    const sliderImages = document.querySelector('.slider-images');
-    sliderImages.style.width = `${(numberOfImages * imageWidth) + ((numberOfImages - 1) * margin)}px`;
   </script>
 </head>
 <body>
@@ -139,6 +134,13 @@
       <img src="./9.png" alt="Image 9">
     </div>
   </div>
- 
+  <script>
+    // JavaScript for autoplay and dynamic width calculation
+    const imageWidth = document.querySelector('.slider-images img').offsetWidth; // Get image width
+    const numberOfImages = document.querySelectorAll('.slider-images img').length;
+    const margin = 10; // Adjust margin as needed
+    const sliderImages = document.querySelector('.slider-images');
+    sliderImages.style.width = `${(numberOfImages * imageWidth) + ((numberOfImages - 1) * margin)}px`;
+  </script>
 </body>
 </html>
