@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <title>Horizontal Scroll</title>
   <style>
     /* CSS styles */
+    body {
+      background: #111;
+    }
 
     .horizontal-scroll-wrapper {
       position: absolute;
@@ -43,15 +46,6 @@
     .squares > div:nth-child(3) {
       background-image: URL("https://austinkleon.com/wp-content/uploads/2012/10/03-attribution-500x333.jpg");
     }
-    .squares > div:nth-child(4) {
-      background-image: URL("https://austinkleon.com/wp-content/uploads/2012/10/01-think-process-500x333.jpg");
-    }
-    .squares > div:nth-child(5) {
-      background-image: URL("https://austinkleon.com/wp-content/uploads/2012/10/07-learn-teach-500x333.jpg");
-    }
-    .squares > div:nth-child(6) {
-      background-image: URL("https://austinkleon.com/wp-content/uploads/2012/10/03-attribution-500x333.jpg");
-    }
 
     /* Additional styles for multiple images can be added here */
   </style>
@@ -64,18 +58,20 @@
     <div></div>
     <div></div>
     <div></div>
-    </div>
+  </div>
   <script>
     // JavaScript for autoplay
     const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
-    let scrollPosition = 0;
+    let scrollPosition = 0; // Initial scroll position
 
     function autoScroll() {
       scrollPosition++;
-      scrollWrapper.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+      scrollWrapper.scrollTo({ top: scrollPosition, behavior: 'smooth' });  
 
-      if (scrollPosition >= (scrollWrapper.scrollHeight - scrollWrapper.clientHeight)) {
-        scrollPosition = 0;
+      // Check if scroll position exceeds total scrollable height minus viewport height
+      if (scrollPosition >= scrollWrapper.scrollHeight - scrollWrapper.clientHeight) {
+        // Reset scroll position to the beginning (content width)
+        scrollPosition = scrollWrapper.scrollWidth; // Use scrollWidth for content width
       }
     }
 
@@ -83,4 +79,3 @@
   </script>
 </body>
 </html>
-
