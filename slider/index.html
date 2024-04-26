@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horizontal Image Slider</title>
-  <style>
+<!--   <style>
     /* CSS styles */
     body {
       background: #111;
@@ -38,6 +38,42 @@
       from { transform: translateX(0); }
       to { transform: translateX(-calc(100vw + 10px)); } /* Slide one image width + margin */
     }
+  </style> -->
+  <style>
+    /* CSS styles */
+    body {
+      background: #111;
+      margin: 0;
+    }
+
+    .slider-wrapper {
+      overflow: hidden;
+      position: relative;
+      width: 100vw; /* Width of the viewport */
+      height: 300px; /* Adjust height as needed */
+    }
+
+    .slider-images {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      /* Set width to at least twice the viewport width */
+      width: calc(2 * 100vw);
+      animation: scroll-images 20s linear infinite; /* Animation for autoplay */
+    }
+
+    .slider-images img {
+      width: 338px; /* Image width */
+      height: 240px; /* Image height */
+      margin: 0 10px; /* Adjust margin as needed */
+      object-fit: cover;
+    }
+
+    @keyframes scroll-images {
+      from { transform: translateX(0); }
+      to { transform: translateX(-calc(100vw + 10px)); } /* Slide one image width + margin */
+    }
   </style>
 </head>
 <body>
@@ -54,7 +90,7 @@
       <img src="./9.png" alt="Image 9">
       </div>
   </div>
-<script>
+<!-- <script>
     // JavaScript for autoplay
     const sliderImages = document.querySelector('.slider-images');
     const imageWidth = sliderImages.querySelector('img').offsetWidth; // Get image width
@@ -68,6 +104,6 @@
 
     // Initial scroll (optional, for immediate start)
     autoScroll();
-  </script>
+  </script> -->
 </body>
 </html>
