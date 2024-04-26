@@ -24,7 +24,7 @@
       left: 0;
       display: flex;
       width: calc(9999px * 100%); /* Big width to accommodate multiple images */
-      animation: scroll-images 20s linear infinite; /* Animation for autoplay */
+      animation: scroll-images 30s linear infinite; /* Animation for autoplay */
     }
 
     .slider-images img {
@@ -64,7 +64,7 @@
       sliderImages.style.transform = `translateX(-${sliderImages.offsetWidth}px)`;
     }
 
-    setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
+    setInterval(autoScroll, 50000); // Change interval (in milliseconds) to adjust scroll speed
 
     // Initial scroll (optional, for immediate start)
     autoScroll();
