@@ -59,17 +59,6 @@
 
     function autoScroll() {
       sliderImages.style.transform = `translateX(-${totalWidth}px)`; // Set translate to full width
-      sliderImages.addEventListener('transitionend', () => {
-        // Clone the first set of images and append them to the end
-        const firstImages = sliderImages.cloneNode(true);
-        sliderImages.appendChild(firstImages);
-
-        // Wait for appended images transition to complete before removing
-        sliderImages.addEventListener('transitionend', () => {
-          sliderImages.removeChild(sliderImages.firstChild); // Remove the first set
-          sliderImages.style.transform = 'translateX(0)'; // Reset to beginning
-        }, { once: true }); // Remove event listener after first use
-      }, { once: true }); // Remove event listener after first use
     }
 
     setInterval(autoScroll, 20000); // Change interval (in milliseconds) to adjust scroll speed
